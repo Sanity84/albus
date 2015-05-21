@@ -1,13 +1,5 @@
 <?php 
 
-// Setup dependencies here NOTE: these are set for all route files
-
-$request = new albus\Core\Request();
-$response = new albus\Core\Response();
-// Uncomment this to enable database connections
-// $db = new albus\Core\Database();
-$router = new albus\Core\Router();
-
 $router->get('/', function() use ($response) {
 	$response->setContentType('text/html');
 	$template = '

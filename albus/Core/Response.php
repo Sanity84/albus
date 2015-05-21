@@ -41,4 +41,15 @@ class Response {
 		http_response_code(404);
 		return $data;
 	}
+
+	public function setCookie($name, $value, $time = null) {
+		if($time == null)
+			setcookie($name, $value);
+		else
+			setcookie($name, $value, time() + $time);
+	}
+
+	public function deleteCookie($name) {
+		setcookie($name, null, time()-1);
+	}
 }
