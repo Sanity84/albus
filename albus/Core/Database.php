@@ -7,6 +7,8 @@ define('HOST', $host);
 define('NAME', $name);
 define('USER', $user);
 define('PASS', $pass);
+define('TYPE', $type);
+define('TZ', $timezone);
 
 class Database {
 
@@ -14,8 +16,9 @@ class Database {
 
 	public function __construct() {
 
+		date_default_timezone_set(TZ);
 		try {
-			$this->db = new \PDO('mysql:host='.HOST.';dbname='.NAME, USER, PASS);
+			$this->db = new \PDO(TYPE.':host='.HOST.';dbname='.NAME, USER, PASS);
 			$this->db->setAttribute(\PDO::ATTR_EMULATE_PREPARES, false); // php is not allowed to touch prepared statements
 			$this->db->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
 		}catch(\PDOException $e) {
