@@ -50,6 +50,6 @@ class Response {
 	}
 
 	public function deleteCookie($name) {
-		setcookie($name, null, time()-1);
+		setcookie($name, null, time()-1, '/', null);
 	}
 }
