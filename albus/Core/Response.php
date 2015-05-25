@@ -44,9 +44,9 @@ class Response {
 
 	public function setCookie($name, $value, $time = null) {
 		if($time == null)
-			setcookie($name, $value);
+			setcookie($name, $value, null, '/', null);
 		else
-			setcookie($name, $value, time() + $time);
+			setcookie($name, $value, time() + $time, '/', null);
 	}
 
 	public function deleteCookie($name) {

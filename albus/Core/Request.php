@@ -27,4 +27,8 @@ class Request {
 	public function getAuthPass() {
 		return isset($_SERVER['PHP_AUTH_PW']) ? $_SERVER['PHP_AUTH_PW'] : false;
 	}
+
+	public function getFile($name) {
+		return $_FILES[$name];
+	}
 }
